@@ -1,8 +1,12 @@
-import { AutenticationPageContainer, AutenticationPageTitle } from './styles';
+import {
+  AutenticationPageContainer,
+  AutenticationPageContent,
+  AutenticationPageTitle
+} from './styles';
 
 interface iAutenticationPageProps {
   title: string;
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 }
 
 export const AutenticationPage = ({
@@ -12,7 +16,7 @@ export const AutenticationPage = ({
   return (
     <AutenticationPageContainer>
       <AutenticationPageTitle>{title}</AutenticationPageTitle>
-      {children}
+      <AutenticationPageContent>{children}</AutenticationPageContent>
     </AutenticationPageContainer>
   );
 };
