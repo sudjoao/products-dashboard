@@ -1,9 +1,9 @@
-import { tAddres } from './address';
+import { tAddress } from './address';
 
 export type tUser = {
   name: string;
   cpf: string;
   birthDate: Date;
   email: string;
-  address: tAddres;
+  address: tAddress;
 };

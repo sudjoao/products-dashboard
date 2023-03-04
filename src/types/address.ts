@@ -1,4 +1,4 @@
-export type tAddres = {
+export type tAddress = {
   cep: string;
   city: string;
   state: string;
