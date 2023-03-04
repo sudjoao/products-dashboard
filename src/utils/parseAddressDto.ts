@@ -8,8 +8,8 @@ export const parseAddressDto = (
   const { cep, logradouro, complemento, bairro, localidade, uf } = addressDto;
   return {
     cep,
-    city: localidade,
-    state: uf,
+    city: localidade || '',
+    state: uf || '',
     public_place: logradouro,
     neighborhood: bairro,
     complement: complemento

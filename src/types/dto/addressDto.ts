@@ -1,12 +1,8 @@
 export type tAddresDto = {
   cep: string;
   logradouro: string;
-  complemento: string;
+  complemento: string | number;
   bairro: string;
-  localidade: string;
-  uf: string;
-  ibge: string;
-  gia: string;
-  ddd: string;
-  siafi: string;
+  localidade?: string;
+  uf?: string;
 };

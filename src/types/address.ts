@@ -4,5 +4,5 @@ export type tAddress = {
   state: string;
   public_place: string;
   neighborhood: string;
-  complement: string;
+  complement: string | number;
 };
