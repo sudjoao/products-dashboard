@@ -1,10 +1,12 @@
 import { Route, Routes } from 'react-router';
-import { Register } from '../../pages/Register';
+import { NotFound } from '../../pages/NotFound';
+import { SignIn } from '../../pages/SignIn';
 
 export const AutenticationRoutes = () => {
   return (
     <Routes>
-      <Route path={'/'} element={<Register />} />
+      <Route path={'/'} element={<SignIn />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
