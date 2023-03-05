@@ -32,7 +32,7 @@ export class MockApiProductService implements iProductService {
 
   async listProducts(userToken: string): Promise<tProduct[] | undefined> {
     const products = await this.api.get<tProductDto[]>(
-      'products',
+      'produto',
       this.createHeader(userToken)
     );
     if (!products) return;
