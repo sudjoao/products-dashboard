@@ -1,17 +1,19 @@
-import { useContext } from 'react';
-import { CepContext } from '../../contexts/CepServiceContext';
-import { SignInForm } from '../../forms/LoginForm';
+import { SignInForm } from '../../forms/SignInForm';
 import { AutenticationPage } from '../templates/AutenticationPage';
 import SignInSVG from '../../assets/images/login.svg';
 import { SignInImage } from './styles';
+import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 export const SignIn = () => {
-  const { getLocationInfo } = useContext(CepContext);
+  const navigate = useNavigate();
   return (
     <AutenticationPage title="Acessar Conta">
       <SignInImage src={SignInSVG} />
       <SignInForm />
-      <a href="/signup"> Criar Conta </a>
+      <Button variant="text" onClick={() => navigate('/signup')}>
+        Criar Conta
+      </Button>
     </AutenticationPage>
   );
 };

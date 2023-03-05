@@ -7,6 +7,7 @@ import { DefaultTextField } from '../../components/DefaultTextField';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { FormTemplate } from '../templates/FormTemplate';
+import { LoadingContext } from '../../contexts/LoadingContext';
 
 const validationSchema = yup.object({
   email: yup
@@ -21,6 +22,8 @@ const validationSchema = yup.object({
 
 export const SignInForm = () => {
   const { signIn } = useContext(UserContext);
+  const { setIsLoading } = useContext(LoadingContext);
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -28,9 +31,12 @@ export const SignInForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      signIn(values.email, values.password).catch((error) => {
-        alert(error);
-      });
+      setIsLoading(true);
+      signIn(values.email, values.password)
+        .catch((error) => {
+          alert(error);
+        })
+        .finally(() => setIsLoading(false));
     }
   });
 
