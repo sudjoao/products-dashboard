@@ -7,6 +7,7 @@ import { LoadingContext } from '../../contexts/LoadingContext';
 import { ProductContext } from '../../contexts/ProductContext';
 import { UserContext } from '../../contexts/UserContext';
 import { tProduct } from '../../types/product';
+import { onImageError } from '../../utils/onImageError';
 import { ProductPageTemplate } from '../templates/ProductPage/index';
 import { getTableHeaders } from './data';
 import { ProductImage } from './styles';
@@ -18,15 +19,8 @@ export const Home = () => {
   const { userToken } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handleImageError = (
-    e: React.SyntheticEvent<HTMLImageElement, Event>
-  ) => {
-    e.currentTarget.src = require('../../assets/images/no_image.jpg');
-    e.currentTarget.onerror = null;
-  };
-
   const renderProductImage = (imageSource: string) => (
-    <ProductImage src={imageSource} onError={handleImageError} />
+    <ProductImage src={imageSource} onError={onImageError} />
   );
 
   const renderIconButton = (product: tProduct) => (

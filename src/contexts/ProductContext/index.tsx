@@ -3,6 +3,10 @@ import { iProductService } from '../../services/ProductService';
 import { tProduct } from '../../types/product';
 interface iProductContextProps {
   listProducts: (userToken: string) => Promise<tProduct[] | undefined>;
+  getProduct: (
+    userToken: string,
+    productId: string
+  ) => Promise<tProduct | undefined>;
   createProduct: (
     userToken: string,
     productInfo: tProduct
@@ -31,6 +35,11 @@ export const ProductContextProvider = ({
     return products;
   };
 
+  const getProduct = (userToken: string, productId: string) => {
+    const products = productService.getProduct(userToken, productId);
+    return products;
+  };
+
   const createProduct = (userToken: string, productInfo: tProduct) => {
     const product = productService.createProduct(userToken, productInfo);
     return product;
@@ -51,7 +60,7 @@ export const ProductContextProvider = ({
 
   return (
     <ProductContext.Provider
-      value={{ listProducts, createProduct, editProduct }}
+      value={{ listProducts, getProduct, createProduct, editProduct }}
     >
       {children}
     </ProductContext.Provider>

@@ -2,7 +2,7 @@ import { ProductPageContainer, ProductPageTitle } from './styles';
 
 interface iProductPageTemplateProps {
   title: string;
-  children: JSX.Element | JSX.Element[] | undefined;
+  children: JSX.Element | JSX.Element[] | undefined | boolean;
 }
 
 export const ProductPageTemplate = ({

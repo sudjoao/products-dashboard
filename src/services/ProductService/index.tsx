@@ -5,6 +5,10 @@ import { parseProductDto } from '../../utils/parseProductsDto';
 
 export interface iProductService {
   listProducts: (userToken: string) => Promise<tProduct[] | undefined>;
+  getProduct: (
+    userToken: string,
+    productId: string
+  ) => Promise<tProduct | undefined>;
   createProduct: (
     userToken: string,
     productInfo: tProduct
@@ -43,6 +47,17 @@ export class MockApiProductService implements iProductService {
     return parsedProducts;
   }
 
+  async getProduct(
+    userToken: string,
+    productId: string
+  ): Promise<tProduct | undefined> {
+    const product = await this.api.get<tProductDto>(
+      `produto/${productId}`,
+      this.createHeader(userToken)
+    );
+    if (!product) return;
+    return parseProductDto(product);
+  }
   async createProduct(
     userToken: string,
     productInfo: tProduct
