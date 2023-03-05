@@ -3,10 +3,11 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Button, TextField } from '@mui/material';
 import { formData } from './data';
-import { FormContainer } from './styles';
-import { DefaultTextField } from '../../components/DefaultTextField';
+import { DefaultTextField } from '../../../components/DefaultTextField';
 import { useContext } from 'react';
-import { UserContext } from '../../contexts/UserContext';
+import { UserContext } from '../../../contexts/UserContext';
+import { FormTemplate } from '../../templates/FormTemplate';
+import { tPartialUser } from '../../../types/user';
 
 const validationSchema = yup.object({
   email: yup
@@ -16,26 +17,35 @@ const validationSchema = yup.object({
   password: yup
     .string()
     .min(8, 'Tamanho mímino da senha é 8.')
-    .required('Senha é um campo obrigatório.')
+    .required('Senha é um campo obrigatório.'),
+  confirmPassword: yup
+    .string()
+    .min(8, 'Tamanho mímino da senha é 8.')
+    .required('Confirmar Senha é um campo obrigatório.')
 });
 
-export const SignInForm = () => {
-  const { signIn } = useContext(UserContext);
+interface iAccountDataFormProps {
+  handleContinueButton: (data: tPartialUser) => void;
+}
+
+export const AccountDataForm = ({
+  handleContinueButton
+}: iAccountDataFormProps) => {
+  const { signUp } = useContext(UserContext);
   const formik = useFormik({
     initialValues: {
       email: '',
-      password: ''
+      password: '',
+      confirmPassword: ''
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      signIn(values.email, values.password).catch((error) => {
-        alert(error);
-      });
+      handleContinueButton({ password: values.password, email: values.email });
     }
   });
 
   return (
-    <FormContainer onSubmit={formik.handleSubmit}>
+    <FormTemplate onSubmit={formik.handleSubmit}>
       <DefaultTextField
         formData={formData.email}
         value={formik.values.email}
@@ -51,9 +61,22 @@ export const SignInForm = () => {
         helperText={formik.touched.password && formik.errors.password}
         hiddenText
       />
+      <DefaultTextField
+        formData={formData.confirmPassword}
+        value={formik.values.confirmPassword}
+        onChange={formik.handleChange}
+        error={
+          formik.touched.confirmPassword &&
+          Boolean(formik.errors.confirmPassword)
+        }
+        helperText={
+          formik.touched.confirmPassword && formik.errors.confirmPassword
+        }
+        hiddenText
+      />
       <Button color="primary" variant="contained" fullWidth type="submit">
         Entrar
       </Button>
-    </FormContainer>
+    </FormTemplate>
   );
 };
