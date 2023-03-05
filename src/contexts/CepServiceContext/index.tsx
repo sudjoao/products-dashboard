@@ -1,7 +1,6 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext } from 'react';
 import { iCepService } from '../../services/CepService';
 import { tAddress } from '../../types/address';
-import { tUser } from '../../types/user';
 
 interface iCepContextProps {
   getLocationInfo(cep: string): Promise<tAddress | undefined>;
