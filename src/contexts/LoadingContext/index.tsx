@@ -3,29 +3,27 @@ import { LoadingIndicator } from '../../components/LoadingIndicator';
 import { iAutenticationService } from '../../services/AutenticationService';
 import { tUser } from '../../types/user';
 interface iLoadingContextProps {
-    isLoading: boolean;
-    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const LoadingContext = createContext<iLoadingContextProps>(
-    {} as iLoadingContextProps
+  {} as iLoadingContextProps
 );
 
 interface iLoadingContextProvider {
-    children: JSX.Element;
+  children: JSX.Element;
 }
 
 export const LoadingContextProvider = ({
-    children,
+  children
 }: iLoadingContextProvider) => {
-    const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
-    return (
-        <LoadingContext.Provider
-            value={{ isLoading, setIsLoading }}
-        >
-            {isLoading && <LoadingIndicator />}
-            {children}
-        </LoadingContext.Provider>
-    );
+  return (
+    <LoadingContext.Provider value={{ isLoading, setIsLoading }}>
+      {isLoading && <LoadingIndicator />}
+      {children}
+    </LoadingContext.Provider>
+  );
 };
