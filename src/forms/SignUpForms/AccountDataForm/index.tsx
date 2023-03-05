@@ -22,6 +22,7 @@ const validationSchema = yup.object({
     .string()
     .min(8, 'Tamanho mímino da senha é 8.')
     .required('Confirmar Senha é um campo obrigatório.')
+    .oneOf([yup.ref('password')], 'Senhas precisam dar match')
 });
 
 interface iAccountDataFormProps {
@@ -75,7 +76,7 @@ export const AccountDataForm = ({
         hiddenText
       />
       <Button color="primary" variant="contained" fullWidth type="submit">
-        Entrar
+        Continuar
       </Button>
     </FormTemplate>
   );

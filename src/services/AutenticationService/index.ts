@@ -16,7 +16,8 @@ export class MockApiAutenticationService implements iAutenticationService {
   }
 
   async signUp(user: tUser): Promise<tUser | undefined> {
-    return {} as tUser;
+    const userInfo = await this.api.post<tUserDto>('user', user);
+    return parseUserDto(userInfo);
   }
 
   async signIn(email: string): Promise<tUser | undefined> {
