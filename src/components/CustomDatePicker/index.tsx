@@ -1,6 +1,5 @@
-import { DatePicker, DateValidationError } from '@mui/x-date-pickers';
+import { DateValidationError } from '@mui/x-date-pickers';
 import { PickerChangeHandler } from '@mui/x-date-pickers/internals/hooks/usePicker/usePickerValue';
-import React from 'react';
 import { ErrorMessage } from '../ErrorMessage';
 import { CustomDatePickerComponenet, DatePickerContainer } from './styles';
 

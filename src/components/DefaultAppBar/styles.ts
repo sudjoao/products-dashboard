@@ -1,4 +1,4 @@
-import { AppBar, styled, Toolbar } from '@mui/material';
+import { styled } from '@mui/material';
 import { Box } from '@mui/system';
 
 export const AppBarContainer = styled(Box)({

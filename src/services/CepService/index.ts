@@ -1,4 +1,3 @@
-import { AxiosInstance } from 'axios';
 import { HttpsAdapterType } from '../../adapters/https/HttpsAdapter';
 import { tAddress } from '../../types/address';
 import { tAddresDto } from '../../types/dto/addressDto';

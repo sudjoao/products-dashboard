@@ -43,7 +43,6 @@ export class MockApiProductService implements iProductService {
     const parsedProducts = products.map((productDto) =>
       parseProductDto(productDto)
     );
-    console.log(parsedProducts);
     return parsedProducts;
   }
 

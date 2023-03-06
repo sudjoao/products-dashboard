@@ -1,6 +1,6 @@
-import { Field, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { Box, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import { formData } from './data';
 import { DefaultTextField } from '../../components/DefaultTextField';
 import { useContext } from 'react';
@@ -9,7 +9,7 @@ import { FormTemplate } from '../templates/FormTemplate';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { CurrencyTextField } from '../../components/CurrencyTextField';
 import { tProduct } from '../../types/product';
-import ImageUploader from '../../components/ImageUploader';
+import { ImageUploader } from '../../components/ImageUploader';
 import { ProductContext } from '../../contexts/ProductContext';
 
 const validationSchema = yup.object({
@@ -53,6 +53,7 @@ export const CreateProductForm = ({ product }: iCreateProductFormProps) => {
       alert(sucessMessage);
     } catch (e) {
       alert(e);
+      setIsLoading(false);
     }
   };
 
@@ -89,7 +90,6 @@ export const CreateProductForm = ({ product }: iCreateProductFormProps) => {
       <CurrencyTextField
         formData={formData.price}
         value={formik.values.price}
-        onChange={formik.handleChange}
         setFieldValue={formik.setFieldValue}
         error={formik.touched.price && Boolean(formik.errors.price)}
         helperText={formik.touched.price && formik.errors.price}

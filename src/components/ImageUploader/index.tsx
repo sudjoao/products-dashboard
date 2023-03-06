@@ -1,4 +1,3 @@
-import { Input } from '@mui/material';
 import { FormikErrors } from 'formik';
 import React, { useState } from 'react';
 import { onImageError } from '../../utils/onImageError';
@@ -29,12 +28,12 @@ interface iImageUploaderProps {
   errorMessage: string | undefined;
   initialImage: string | undefined;
 }
-export default function ImageUploader({
+export const ImageUploader = ({
   setFieldValue,
   hasError,
   errorMessage,
   initialImage
-}: iImageUploaderProps) {
+}: iImageUploaderProps) => {
   const [image, setImage] = useState(initialImage);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,4 +56,4 @@ export default function ImageUploader({
       {hasError && <ErrorMessage message={errorMessage} />}
     </ImageUploaderContainer>
   );
-}
+};

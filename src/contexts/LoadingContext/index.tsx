@@ -1,7 +1,5 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 import { LoadingIndicator } from '../../components/LoadingIndicator';
-import { iAutenticationService } from '../../services/AutenticationService';
-import { tUser } from '../../types/user';
 interface iLoadingContextProps {
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;

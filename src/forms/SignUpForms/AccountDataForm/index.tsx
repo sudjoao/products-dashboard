@@ -1,10 +1,11 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { formData } from './data';
 import { DefaultTextField } from '../../../components/DefaultTextField';
 import { FormTemplate } from '../../templates/FormTemplate';
 import { tPartialUser } from '../../../types/user';
+import { useNavigate } from 'react-router-dom';
 
 const validationSchema = yup.object({
   email: yup
@@ -29,6 +30,7 @@ interface iAccountDataFormProps {
 export const AccountDataForm = ({
   handleContinueButton
 }: iAccountDataFormProps) => {
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -71,9 +73,14 @@ export const AccountDataForm = ({
         }
         hiddenText
       />
-      <Button color="primary" variant="contained" fullWidth type="submit">
-        Continuar
-      </Button>
+      <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+        <Button color="primary" variant="contained" fullWidth type="submit">
+          Continuar
+        </Button>
+        <Button variant="text" onClick={() => navigate('/')}>
+          Acessar conta
+        </Button>
+      </Box>
     </FormTemplate>
   );
 };

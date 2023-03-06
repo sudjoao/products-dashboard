@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { DefaultTextField } from '../DefaultTextField';
 import { tFormData } from '../../types/formData';
 import { tSelectItem } from '../../types/selectItem';
-import { NumberFormatBase, NumericFormat } from 'react-number-format';
+import { NumericFormat } from 'react-number-format';
 import { FormikErrors } from 'formik';
 
 interface iCurrencyTextFieldProps {
   formData: tFormData;
   value: string;
-  onChange: (e: React.ChangeEvent<any>) => void;
   error: boolean | undefined;
   helperText?: string | false | undefined;
   hiddenText?: boolean;
@@ -33,7 +32,6 @@ interface iCurrencyTextFieldProps {
 
 export const CurrencyTextField = ({
   value,
-  onChange,
   setFieldValue,
   ...props
 }: iCurrencyTextFieldProps) => {

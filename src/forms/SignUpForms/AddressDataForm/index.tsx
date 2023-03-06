@@ -43,7 +43,7 @@ export const AddressDataForm = ({
       complement: ''
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
+    onSubmit: () => {
       handleContinueButton({});
     }
   });

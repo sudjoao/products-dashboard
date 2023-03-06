@@ -1,4 +1,4 @@
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { GridColDef } from '@mui/x-data-grid';
 import { DataTableContainer, StyledDataGrid } from './styles';
 
 interface iDataTableProps {
@@ -6,7 +6,7 @@ interface iDataTableProps {
   rows: any[];
 }
 
-export default function DataTable({ columns, rows }: iDataTableProps) {
+export const DataTable = ({ columns, rows }: iDataTableProps) => {
   return (
     <DataTableContainer>
       <StyledDataGrid
@@ -23,4 +23,4 @@ export default function DataTable({ columns, rows }: iDataTableProps) {
       />
     </DataTableContainer>
   );
-}
+};

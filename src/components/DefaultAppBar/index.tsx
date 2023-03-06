@@ -5,18 +5,13 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { UserContext } from '../../contexts/UserContext';
 import { UserInfoMenu } from '../UserInfoMenu';
-import { Typography } from '@mui/material';
 import { Expanded } from '../UserInfoMenu/styles';
 
 interface iDefaultAppBarProps {
-  title: string;
   otherActions?: JSX.Element | JSX.Element[] | undefined;
 }
 
-export default function DefaultAppBar({
-  title,
-  otherActions
-}: iDefaultAppBarProps) {
+export const DefaultAppBar = ({ otherActions }: iDefaultAppBarProps) => {
   const { user } = React.useContext(UserContext);
 
   return (
@@ -34,8 +29,8 @@ export default function DefaultAppBar({
 
         <Expanded />
         {otherActions && otherActions}
-        {user && <UserInfoMenu user={user} />}
+        {user && <UserInfoMenu />}
       </Toolbar>
     </AppBar>
   );
-}
+};

@@ -8,7 +8,6 @@ export const FormContainer = styled('form')`
   margin: 1rem 0;
   ${(props) => props.theme.breakpoints.up('sm')} {
     width: 40%;
-    gap: 2rem;
     margin: auto;
   }
 `;

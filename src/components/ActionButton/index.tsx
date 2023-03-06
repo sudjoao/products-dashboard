@@ -1,6 +1,3 @@
-import { Edit } from '@mui/icons-material';
-import { IconButton } from '@mui/material';
-import Icon from '@mui/material/Icon';
 import React from 'react';
 import { StyledIcon, StyledIconButton } from './styles';
 

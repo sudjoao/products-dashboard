@@ -1,4 +1,3 @@
-import { Button } from '@mui/material';
 import { styled } from '@mui/system';
 
 export const AutenticationPageContainer = styled('div')({
