@@ -11,7 +11,7 @@ yarn start
 
 ## Acessando projeto
 
-Para acessar o projeto você pode estar passando pelo fluxo de criação de conta, na registro, ou então utilizar um dos logins disponíveis na API Mockada.
+Para acessar o projeto você pode deve utilizar um dos logins disponíveis na API Mockada.
 
 Ps: Lembre-se que a conta que você criar não vai poder ser utilizada para logar posteriormente pois é uma API Mockada.
 

@@ -30,7 +30,7 @@ export const SignInForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      setIsLoading(true);
+      setIsLoading(true, true);
       signIn(values.email, values.password)
         .catch((error) => {
           alert(error);

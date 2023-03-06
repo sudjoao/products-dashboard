@@ -1,6 +1,11 @@
 import { Box, CircularProgress, styled } from '@mui/material';
 
-export const LoadingIndicatorContainer = styled(Box)`
+interface iLoadingIndicatorContainerProps {
+  fullscreen?: boolean;
+}
+export const LoadingIndicatorContainer = styled(
+  Box
+)<iLoadingIndicatorContainerProps>`
   height: 100vh;
   width: 100%;
   position: absolute;
@@ -9,9 +14,9 @@ export const LoadingIndicatorContainer = styled(Box)`
   align-items: center;
   justify-content: center;
   z-index: 5;
-  ${(props) => props.theme.breakpoints.up('sm')} {
-    width: 80vw;
-    margin-left: 20vw;
+  ${({ theme }) => theme.breakpoints.up('sm')} {
+    width: ${({ fullscreen }) => (fullscreen ? '100vw' : '80vw')};
+    margin-left: ${({ fullscreen }) => (fullscreen ? '0' : '20vw')};
   }
 `;
 export const StyledLoadingIndicator = styled(CircularProgress)(({ theme }) => ({

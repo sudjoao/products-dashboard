@@ -36,7 +36,6 @@ export const Home = () => {
       .then((data) => setProducts(data))
       .catch((e) => alert(e))
       .finally(() => setIsLoading(false));
-    setIsLoading(false);
   };
 
   useEffect(() => {

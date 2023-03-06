@@ -58,7 +58,7 @@ export const AddressDataForm = ({
   const handleCepChange = async (e: React.ChangeEvent<any>) => {
     formik.handleChange(e);
     if (e.target.value.length == 8) {
-      setIsLoading(true);
+      setIsLoading(true, true);
       getLocationInfo(e.target.value)
         .then((data) => data && updateValues(data))
         .catch((e) => alert(e))

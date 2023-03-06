@@ -1,8 +1,10 @@
 import { LoadingIndicatorContainer, StyledLoadingIndicator } from './styles';
-
-export const LoadingIndicator = () => {
+interface iLoadingIndicatorProps {
+  fullscreen?: boolean;
+}
+export const LoadingIndicator = ({ fullscreen }: iLoadingIndicatorProps) => {
   return (
-    <LoadingIndicatorContainer>
+    <LoadingIndicatorContainer fullscreen={fullscreen}>
       <StyledLoadingIndicator />
     </LoadingIndicatorContainer>
   );
