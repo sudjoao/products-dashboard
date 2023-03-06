@@ -1,7 +1,6 @@
 import {
   Badge,
   CalendarMonth,
-  Lock,
   Mail,
   PermIdentity,
   Person

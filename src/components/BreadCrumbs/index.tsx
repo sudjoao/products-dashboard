@@ -1,6 +1,7 @@
 import { IconButton } from '@mui/material';
 import {
   BreadCrumbArrow,
+  BreadCrumbIconButton,
   BreadCrumbItem,
   BreadCrumbsContainer
 } from './styles';
@@ -20,7 +21,7 @@ export const BreadCrumbs = ({
     <BreadCrumbsContainer>
       {items.map((item, i) => (
         <>
-          <IconButton
+          <BreadCrumbIconButton
             onClick={() => {
               setIndex(i);
             }}
@@ -33,7 +34,7 @@ export const BreadCrumbs = ({
               {' '}
               {item}
             </BreadCrumbItem>
-          </IconButton>
+          </BreadCrumbIconButton>
           {i < items.length - 1 && (
             <BreadCrumbArrow
               selected={i == currentIndex}

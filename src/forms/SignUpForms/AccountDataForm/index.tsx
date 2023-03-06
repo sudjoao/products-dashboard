@@ -1,11 +1,8 @@
-import ReactDOM from 'react-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { Button, TextField } from '@mui/material';
+import { Button } from '@mui/material';
 import { formData } from './data';
 import { DefaultTextField } from '../../../components/DefaultTextField';
-import { useContext } from 'react';
-import { UserContext } from '../../../contexts/UserContext';
 import { FormTemplate } from '../../templates/FormTemplate';
 import { tPartialUser } from '../../../types/user';
 
@@ -32,7 +29,6 @@ interface iAccountDataFormProps {
 export const AccountDataForm = ({
   handleContinueButton
 }: iAccountDataFormProps) => {
-  const { signUp } = useContext(UserContext);
   const formik = useFormik({
     initialValues: {
       email: '',

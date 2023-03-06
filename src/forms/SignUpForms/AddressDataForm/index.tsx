@@ -1,17 +1,15 @@
-import ReactDOM from 'react-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { Button, TextField } from '@mui/material';
+import { Button } from '@mui/material';
 import { formData } from './data';
 import { DefaultTextField } from '../../../components/DefaultTextField';
 import { useContext } from 'react';
-import { UserContext } from '../../../contexts/UserContext';
 import { FormTemplate } from '../../templates/FormTemplate';
 import { tPartialUser } from '../../../types/user';
 import { CepContext } from '../../../contexts/CepServiceContext';
 import { LoadingContext } from '../../../contexts/LoadingContext';
 import { tAddress } from '../../../types/address';
-import { Box } from '@mui/system';
+import { TwoColumsForm } from '../../../components/TwoColumnsForm';
 
 const validationSchema = yup.object({
   cep: yup
@@ -77,7 +75,7 @@ export const AddressDataForm = ({
         error={formik.touched.cep && Boolean(formik.errors.cep)}
         helperText={formik.touched.cep && formik.errors.cep}
       />
-      <div style={{ display: 'flex' }}>
+      <TwoColumsForm>
         <DefaultTextField
           formData={formData.city}
           value={formik.values.city}
@@ -92,7 +90,7 @@ export const AddressDataForm = ({
           error={formik.touched.state && Boolean(formik.errors.state)}
           helperText={formik.touched.state && formik.errors.state}
         />
-      </div>
+      </TwoColumsForm>
       <DefaultTextField
         formData={formData.public_place}
         value={formik.values.public_place}

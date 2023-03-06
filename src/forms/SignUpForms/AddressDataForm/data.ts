@@ -2,8 +2,6 @@ import {
   AssistantDirection,
   Explore,
   Home,
-  Lock,
-  Mail,
   Map,
   MyLocation,
   Navigation
