@@ -1,7 +1,8 @@
-import { Info } from '@mui/icons-material';
+import { Add, Info } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ActionButton } from '../../components/ActionButton';
 import DataTable from '../../components/DataTable';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { ProductContext } from '../../contexts/ProductContext';
@@ -42,8 +43,12 @@ export const Home = () => {
     getProducts();
   }, []);
 
+  const action = (
+    <ActionButton onClick={() => navigate('product/new')} icon={<Add />} />
+  );
+
   return (
-    <ProductPageTemplate title="Produtos">
+    <ProductPageTemplate title="Produtos" otherActionsButtons={action}>
       {products && (
         <DataTable
           columns={getTableHeaders(renderProductImage, renderIconButton)}

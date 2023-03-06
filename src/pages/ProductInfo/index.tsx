@@ -1,5 +1,7 @@
+import { Delete, Edit } from '@mui/icons-material';
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { ActionButton } from '../../components/ActionButton';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { ProductContext } from '../../contexts/ProductContext';
 import { UserContext } from '../../contexts/UserContext';
@@ -26,6 +28,7 @@ export const ProductInfo = () => {
   const { userToken } = useContext(UserContext);
   const { setIsLoading } = useContext(LoadingContext);
   const { productId } = useParams<iProductInfoParams>();
+  const navigate = useNavigate();
 
   const [productInfo, setProductInfo] = useState<tProduct>();
 
@@ -37,12 +40,26 @@ export const ProductInfo = () => {
       .finally(() => setIsLoading(false));
   };
 
+  const handleDeleteButton = () => console.log('deleted');
+  const actions = (
+    <>
+      <ActionButton
+        onClick={() => navigate(`/product/edit/${productId}`)}
+        icon={<Edit />}
+      />
+      <ActionButton onClick={handleDeleteButton} icon={<Delete />} />
+    </>
+  );
+
   useEffect(() => {
     getProductInfo();
   }, []);
 
   return (
-    <ProductPageTemplate title={`Produto ${productId}`}>
+    <ProductPageTemplate
+      title={`Produto ${productId}`}
+      otherActionsButtons={actions}
+    >
       {productInfo && (
         <ProductContainer>
           <ProductImage src={productInfo.photo} onError={onImageError} />

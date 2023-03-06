@@ -1,9 +1,12 @@
 import { Box, styled } from '@mui/system';
 
 export const ProductPageContainer = styled(Box)({
-  width: '100vw',
+  maxWidth: '100vw',
   height: '100vh',
-  backgroundColor: '#F6F6F6',
+  backgroundColor: '#F6F6F6'
+});
+
+export const ProductPageContent = styled(Box)({
   padding: '1.5rem 1rem'
 });
 
