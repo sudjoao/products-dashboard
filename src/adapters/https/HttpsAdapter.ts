@@ -28,11 +28,7 @@ export interface HttpsAdapterType {
     params?: Record<string, any>,
     config?: any
   ) => Promise<T | undefined>;
-  delete: <T>(
-    endpoint: string,
-    data: Record<string, any>,
-    config?: any
-  ) => Promise<T | undefined>;
+  delete: <T>(endpoint: string, config?: any) => Promise<T | undefined>;
 }
 
 export class HttpsAdapter implements HttpsAdapterType {

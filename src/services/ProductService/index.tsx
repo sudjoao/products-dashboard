@@ -18,6 +18,10 @@ export interface iProductService {
     productInfo: tProduct,
     productId: string
   ) => Promise<tProduct | undefined>;
+  deleteProduct: (
+    userToken: string,
+    productId: string
+  ) => Promise<tProduct | undefined>;
 }
 
 export class MockApiProductService implements iProductService {
@@ -78,6 +82,18 @@ export class MockApiProductService implements iProductService {
     const product = await this.api.patch<tProductDto>(
       `produto/${productId}`,
       productInfo,
+      this.createHeader(userToken)
+    );
+    if (!product) return;
+    return parseProductDto(product);
+  }
+
+  async deleteProduct(
+    userToken: string,
+    productId: string
+  ): Promise<tProduct | undefined> {
+    const product = await this.api.delete<tProductDto>(
+      `produto/${productId}`,
       this.createHeader(userToken)
     );
     if (!product) return;

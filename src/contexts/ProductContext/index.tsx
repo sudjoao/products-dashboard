@@ -16,6 +16,10 @@ interface iProductContextProps {
     productInfo: tProduct,
     productId: string
   ) => Promise<tProduct | undefined>;
+  deleteProduct: (
+    userToken: string,
+    productId: string
+  ) => Promise<tProduct | undefined>;
 }
 
 export const ProductContext = createContext<iProductContextProps>(
@@ -58,9 +62,20 @@ export const ProductContextProvider = ({
     return product;
   };
 
+  const deleteProduct = (userToken: string, productId: string) => {
+    const products = productService.deleteProduct(userToken, productId);
+    return products;
+  };
+
   return (
     <ProductContext.Provider
-      value={{ listProducts, getProduct, createProduct, editProduct }}
+      value={{
+        listProducts,
+        getProduct,
+        createProduct,
+        editProduct,
+        deleteProduct
+      }}
     >
       {children}
     </ProductContext.Provider>
