@@ -9,6 +9,10 @@ yarn install
 yarn start
 ```
 
+## Utilizando o projeto que está no ar
+
+Foi realizada o deploy no projeto no firebase, você pode utilizá-lo [clicando aqui](https://product-dashboard-69910.web.app).
+
 ## Acessando projeto
 
 Para acessar o projeto você pode deve utilizar um dos logins disponíveis na API Mockada.
