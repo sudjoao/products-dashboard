@@ -32,7 +32,7 @@ export const SignUp = () => {
   const [userData, setUserData] = useState<tPartialUser>({});
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentForm, setCurrentForm] = useState(forms[0]);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
