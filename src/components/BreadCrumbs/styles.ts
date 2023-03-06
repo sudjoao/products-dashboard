@@ -9,7 +9,10 @@ interface iBreadCrumbItemProps {
 export const BreadCrumbsContainer = styled('div')`
   display: flex;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  ${(props) => props.theme.breakpoints.up('sm')} {
+    margin-bottom: 4rem;
+  }
 `;
 
 export const BreadCrumbIconButton = styled(IconButton)`
