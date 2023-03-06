@@ -7,9 +7,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import { StyledDrawerDesktop, StyledDrawerMobile } from './styles';
-import { ListAlt } from '@mui/icons-material';
 import { DefaultAppBar } from '../DefaultAppBar';
 import { useNavigate } from 'react-router-dom';
+import { Icon } from '@mui/material';
 
 interface iDefaultDrawerProps {
   otherActions: JSX.Element | JSX.Element[] | undefined;
@@ -23,19 +23,25 @@ export const DefaultDrawer = ({ otherActions }: iDefaultDrawerProps) => {
     setMobileOpen(!mobileOpen);
   };
 
-  const drawerItems = (
+  const drawerItems = [
+    { name: 'Produtos', route: '/', icon: 'list' },
+    { name: 'Novo Produto', route: '/product/new', icon: 'add' }
+  ];
+  const renderdrawerItems = (
     <>
       <Toolbar />
       <Divider />
       <List>
-        <ListItem disablePadding>
-          <ListItemButton onClick={() => navigate('/')}>
-            <ListItemIcon>
-              <ListAlt />
-            </ListItemIcon>
-            <ListItemText primary={'Produtos'} />
-          </ListItemButton>
-        </ListItem>
+        {drawerItems.map((item) => (
+          <ListItem disablePadding>
+            <ListItemButton onClick={() => navigate(item.route)}>
+              <ListItemIcon>
+                <Icon>{item.icon}</Icon>
+              </ListItemIcon>
+              <ListItemText primary={item.name} />
+            </ListItemButton>
+          </ListItem>
+        ))}
       </List>
     </>
   );
@@ -46,14 +52,14 @@ export const DefaultDrawer = ({ otherActions }: iDefaultDrawerProps) => {
         handleDrawerToggle={handleDrawerToggle}
       />
       <StyledDrawerDesktop variant="permanent" open>
-        {drawerItems}
+        {renderdrawerItems}
       </StyledDrawerDesktop>
       <StyledDrawerMobile
         variant="temporary"
         open={mobileOpen}
         onClose={handleDrawerToggle}
       >
-        {drawerItems}
+        {renderdrawerItems}
       </StyledDrawerMobile>
     </>
   );
