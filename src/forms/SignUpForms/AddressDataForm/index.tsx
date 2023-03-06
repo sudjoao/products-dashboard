@@ -14,14 +14,14 @@ import { TwoColumsForm } from '../../../components/TwoColumnsForm';
 const validationSchema = yup.object({
   cep: yup
     .string()
-    .required('Senha é um campo obrigatório.')
+    .required('Campo obrigatório.')
     .min(8, 'CEP necessitade de 8 digitos')
     .max(8, 'CEP necessitade de 8 digitos'),
-  city: yup.string().required('Senha é um campo obrigatório.'),
-  state: yup.string().required('Senha é um campo obrigatório.'),
-  public_place: yup.string().required('Senha é um campo obrigatório.'),
-  neighborhood: yup.string().required('Senha é um campo obrigatório.'),
-  complement: yup.string().required('Senha é um campo obrigatório.')
+  city: yup.string().required('Campo obrigatório.'),
+  state: yup.string().required('Campo obrigatório.'),
+  public_place: yup.string().required('Campo obrigatório.'),
+  neighborhood: yup.string().required('Campo obrigatório.'),
+  complement: yup.string().required('Campo obrigatório.')
 });
 
 interface iAddressDataFormProps {

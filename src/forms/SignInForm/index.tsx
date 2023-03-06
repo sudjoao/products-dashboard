@@ -12,11 +12,11 @@ const validationSchema = yup.object({
   email: yup
     .string()
     .email('Entre com um e-mail válido')
-    .required('E-mail é um campo obrigatório'),
+    .required('Campo obrigatório'),
   password: yup
     .string()
     .min(8, 'Tamanho mímino da senha é 8.')
-    .required('Senha é um campo obrigatório.')
+    .required('Campo obrigatório.')
 });
 
 export const SignInForm = () => {

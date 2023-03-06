@@ -9,9 +9,9 @@ import { cpf } from 'cpf-cnpj-validator';
 import { CustomDatePicker } from '../../../components/CustomDatePicker';
 
 const validationSchema = yup.object({
-  name: yup.string().required('Nome é um campo obrigatório.'),
-  surname: yup.string().required('Sobrenome é um campo obrigatório.'),
-  birthDate: yup.date().required('Data de nascimento é um campo obrigatório.'),
+  name: yup.string().required('Campo obrigatório.'),
+  surname: yup.string().required('Campo obrigatório.'),
+  birthDate: yup.date().required('Campo obrigatório.'),
   cpf: yup
     .string()
     .required('CPF é um campo obrigatório.')
