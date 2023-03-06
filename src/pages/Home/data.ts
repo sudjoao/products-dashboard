@@ -12,17 +12,30 @@ export const getTableHeaders = (
     sortable: false,
     renderCell: (params) => renderProductImage(params.value)
   },
-  { field: 'name', headerName: 'Nome', width: 200 },
-  { field: 'brand', headerName: 'Marca', width: 200 },
-  { field: 'price', headerName: 'Preço', width: 100 },
-  { field: 'stock', headerName: 'Estoque', type: 'number', width: 100 },
-  { field: 'sold', headerName: 'Vendidos', type: 'number', width: 100 },
+  { field: 'name', headerName: 'Nome', minWidth: 200, flex: 2 },
+  { field: 'brand', headerName: 'Marca', minWidth: 200, flex: 2 },
+  { field: 'price', headerName: 'Preço', minWidth: 100, flex: 1 },
+  {
+    field: 'stock',
+    headerName: 'Estoque',
+    type: 'number',
+    minWidth: 100,
+    flex: 1
+  },
+  {
+    field: 'sold',
+    headerName: 'Vendidos',
+    type: 'number',
+    minWidth: 100,
+    flex: 1
+  },
   {
     field: 'info',
     headerName: '',
     sortable: false,
     filterable: false,
     renderCell: (params) => renderIconButton(params.row as tProduct),
-    width: 100
+    minWidth: 100,
+    flex: 1
   }
 ];

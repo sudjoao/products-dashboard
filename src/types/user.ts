@@ -7,6 +7,7 @@ export type tUser = {
   birthDate: Date;
   email: string;
   password: string;
+  image?: string;
   token: string;
   address: tAddress | undefined;
 };

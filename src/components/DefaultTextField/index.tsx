@@ -7,7 +7,7 @@ import { StyledTextField } from './styles';
 
 interface iDefaultTextFieldProps {
   formData: tFormData;
-  value: string;
+  value: string | number;
   onChange: (e: React.ChangeEvent<any>) => void;
   error: boolean | undefined;
   helperText?: string | false | undefined;
