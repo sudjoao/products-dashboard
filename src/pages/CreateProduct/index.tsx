@@ -29,7 +29,7 @@ export const CreateProduct = () => {
   }, []);
 
   return (
-    <ProductPageTemplate title={productId ? 'Criar Produto' : 'Editar Produto'}>
+    <ProductPageTemplate title={productId ? 'Editar Produto' : 'Criar Produto'}>
       {!isLoading && <CreateProductForm product={product} />}
     </ProductPageTemplate>
   );

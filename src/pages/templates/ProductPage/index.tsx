@@ -1,4 +1,4 @@
-import { DefaultAppBar } from '../../../components/DefaultAppBar';
+import { DefaultDrawer } from '../../../components/DeafultDrawer';
 import {
   ProductPageContainer,
   ProductPageContent,
@@ -19,7 +19,7 @@ export const ProductPageTemplate = ({
   return (
     <>
       <ProductPageContainer>
-        <DefaultAppBar otherActions={otherActionsButtons} />
+        <DefaultDrawer otherActions={otherActionsButtons} />
         <ProductPageContent>
           <ProductPageTitle>{title}</ProductPageTitle>
           {children}
