@@ -4,7 +4,7 @@ import React from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { tUser } from '../../types/user';
 import { onImageError } from '../../utils/onImageError';
-import { UserIcon, UserInfo } from './styles';
+import { UserIcon, UserInfo, Username } from './styles';
 
 interface iUserInfoMenuProps {
   user: tUser;
@@ -24,15 +24,8 @@ export const UserInfoMenu = ({ user }: iUserInfoMenuProps) => {
   return (
     <UserInfo>
       <UserIcon src={user && user.image} onError={onImageError} />
-      <p>{user.name}</p>
-      <IconButton
-        size="small"
-        aria-label="account of current user"
-        aria-controls="menu-appbar"
-        aria-haspopup="true"
-        onClick={handleMenu}
-        color="inherit"
-      >
+      <Username>{user.name}</Username>
+      <IconButton onClick={handleMenu}>
         <ArrowDropDown />
       </IconButton>
       <Menu

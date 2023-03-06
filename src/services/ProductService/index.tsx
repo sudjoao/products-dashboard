@@ -62,7 +62,13 @@ export class MockApiProductService implements iProductService {
     userToken: string,
     productInfo: tProduct
   ): Promise<tProduct | undefined> {
-    return;
+    const product = await this.api.post<tProductDto>(
+      `produto/`,
+      productInfo,
+      this.createHeader(userToken)
+    );
+    if (!product) return;
+    return parseProductDto(product);
   }
 
   async editpProduct(
@@ -70,6 +76,12 @@ export class MockApiProductService implements iProductService {
     productInfo: tProduct,
     productId: string
   ): Promise<tProduct | undefined> {
-    return;
+    const product = await this.api.patch<tProductDto>(
+      `produto/${productId}`,
+      productInfo,
+      this.createHeader(userToken)
+    );
+    if (!product) return;
+    return parseProductDto(product);
   }
 }

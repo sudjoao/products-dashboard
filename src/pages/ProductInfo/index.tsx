@@ -45,9 +45,9 @@ export const ProductInfo = () => {
     <>
       <ActionButton
         onClick={() => navigate(`/product/edit/${productId}`)}
-        icon={<Edit />}
+        icon="edit"
       />
-      <ActionButton onClick={handleDeleteButton} icon={<Delete />} />
+      <ActionButton onClick={handleDeleteButton} icon="delete" />
     </>
   );
 
@@ -65,7 +65,7 @@ export const ProductInfo = () => {
           <ProductImage src={productInfo.photo} onError={onImageError} />
           <ProductName>{productInfo.name}</ProductName>
           <ProductBrand>{productInfo.brand}</ProductBrand>
-          <ProductValue>{productInfo.price}</ProductValue>
+          <ProductValue>R$ {productInfo.price}</ProductValue>
           <ProductInfoContainer>
             <ProductInfoBox>
               <ProductValue>{productInfo.stock}</ProductValue>

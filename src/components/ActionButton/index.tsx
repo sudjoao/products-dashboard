@@ -1,11 +1,17 @@
+import { Edit } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
+import Icon from '@mui/material/Icon';
 import React from 'react';
-import { StyledIconButton } from './styles';
+import { StyledIcon, StyledIconButton } from './styles';
 
 interface iActionButtonProps {
-  icon: JSX.Element;
-  onClick: () => void;
+  icon: string;
+  onClick: (() => void) | ((event: React.MouseEvent<HTMLElement>) => void);
 }
 export const ActionButton = ({ icon, onClick }: iActionButtonProps) => {
-  return <StyledIconButton onClick={onClick}>{icon}</StyledIconButton>;
+  return (
+    <StyledIconButton onClick={onClick}>
+      <StyledIcon>{icon}</StyledIcon>
+    </StyledIconButton>
+  );
 };

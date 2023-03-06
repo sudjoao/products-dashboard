@@ -1,5 +1,9 @@
 import DefaultAppBar from '../../../components/DefaultAppBar';
-import { ProductPageContainer, ProductPageContent } from './styles';
+import {
+  ProductPageContainer,
+  ProductPageContent,
+  ProductPageTitle
+} from './styles';
 
 interface iProductPageTemplateProps {
   title: string;
@@ -16,7 +20,10 @@ export const ProductPageTemplate = ({
     <>
       <ProductPageContainer>
         <DefaultAppBar title={title} otherActions={otherActionsButtons} />
-        <ProductPageContent>{children}</ProductPageContent>
+        <ProductPageContent>
+          <ProductPageTitle>{title}</ProductPageTitle>
+          {children}
+        </ProductPageContent>
       </ProductPageContainer>
     </>
   );

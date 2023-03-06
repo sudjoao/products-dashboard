@@ -2,7 +2,7 @@ import { Box, styled } from '@mui/system';
 
 export const ProductPageContainer = styled(Box)({
   maxWidth: '100vw',
-  height: '100vh',
+  minHeight: '100vh',
   backgroundColor: '#F6F6F6'
 });
 
@@ -12,6 +12,6 @@ export const ProductPageContent = styled(Box)({
 
 export const ProductPageTitle = styled('h1')(({ theme }) => ({
   color: theme.palette.primary,
-  fontSize: '1.5rem',
+  fontSize: '1.2rem',
   marginBottom: '1.5rem'
 }));

@@ -1,10 +1,19 @@
 import { Box, styled } from '@mui/material';
 
-export const ProductContainer = styled(Box)({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center'
-});
+export const ProductContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ${(props) => props.theme.breakpoints.up('sm')} {
+    background-color: #fff;
+    border-radius: 1rem;
+    width: 40vw;
+    max-width: 25rem;
+    padding: 1rem 2rem;
+    margin: auto;
+  }
+`;
 
 export const ProductImage = styled('img')({
   height: '20vh',
@@ -31,12 +40,17 @@ export const ProductValueDescription = styled('p')({
   fontSize: '1rem'
 });
 
-export const ProductInfoContainer = styled(Box)({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between'
-});
+export const ProductInfoContainer = styled(Box)`
+  display: flex;
+  alignitems: center;
+  justify-content: space-between;
+
+  ${(props) => props.theme.breakpoints.up('sm')} {
+    width: 100%;
+  }
+`;
 
 export const ProductInfoBox = styled(Box)({
-  padding: '1rem'
+  padding: '1rem',
+  textAlign: 'center'
 });

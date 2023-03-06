@@ -22,6 +22,12 @@ export interface HttpsAdapterType {
     params?: Record<string, any>,
     config?: any
   ) => Promise<T | undefined>;
+  put: <T>(
+    endpoint: string,
+    data: Record<string, any>,
+    params?: Record<string, any>,
+    config?: any
+  ) => Promise<T | undefined>;
   delete: <T>(
     endpoint: string,
     data: Record<string, any>,
@@ -73,6 +79,20 @@ export class HttpsAdapter implements HttpsAdapterType {
   ) => {
     try {
       const response = await this.api.patch(endpoint, data, { ...config });
+      return response.data as T;
+    } catch (error) {
+      if (error instanceof AxiosError) throw this.handleAxiosError(error);
+      throw new ServerError();
+    }
+  };
+
+  put = async <T>(
+    endpoint: string,
+    data: Record<string, any>,
+    config?: any
+  ) => {
+    try {
+      const response = await this.api.put(endpoint, data, { ...config });
       return response.data as T;
     } catch (error) {
       if (error instanceof AxiosError) throw this.handleAxiosError(error);

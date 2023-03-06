@@ -44,7 +44,7 @@ export const Home = () => {
   }, []);
 
   const action = (
-    <ActionButton onClick={() => navigate('product/new')} icon={<Add />} />
+    <ActionButton onClick={() => navigate('product/new')} icon="add" />
   );
 
   return (

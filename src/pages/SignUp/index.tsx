@@ -49,7 +49,11 @@ export const SignUp = () => {
 
   return (
     <AutenticationPage title="Criar Conta">
-      <BreadCrumbs items={formsNames} currentIndex={currentIndex} />
+      <BreadCrumbs
+        items={formsNames}
+        currentIndex={currentIndex}
+        setIndex={setCurrentIndex}
+      />
       <currentForm.form handleContinueButton={handleContinueButton} />
     </AutenticationPage>
   );

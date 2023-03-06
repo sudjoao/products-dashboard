@@ -1,6 +1,9 @@
-import { styled } from '@mui/material';
+import { AppBar, styled, Toolbar } from '@mui/material';
 import { Box } from '@mui/system';
 
+export const AppBarContainer = styled(Box)({
+  flexGrow: 1
+});
 export const UserInfo = styled(Box)({
   display: 'flex',
   alignItems: 'center'
