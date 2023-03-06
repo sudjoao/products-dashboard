@@ -43,6 +43,8 @@ export const UserContextProvider = ({
 
   const signUp = async (user: tUser) => {
     const userInfo = await autenticationService.signUp(user);
+    if (!userInfo) return;
+    await localStorage.setItem('userToken', userInfo.token);
     return userInfo;
   };
 

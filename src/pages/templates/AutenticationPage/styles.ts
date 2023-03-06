@@ -8,11 +8,16 @@ export const AutenticationPageContainer = styled('div')({
   margin: 'auto'
 });
 
-export const AutenticationPageTitle = styled('h1')(({ theme }) => ({
-  color: theme.palette.primary,
-  fontSize: '1.5rem',
-  marginBottom: '1.5rem'
-}));
+export const AutenticationPageTitle = styled('h1')`
+  color: ${(props) => props.theme.palette.primary};
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  ${(props) => props.theme.breakpoints.up('sm')} {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+`;
 
 export const AutenticationPageContent = styled('div')({
   display: 'flex',

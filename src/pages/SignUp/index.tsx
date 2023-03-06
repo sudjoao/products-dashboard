@@ -1,5 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
+import { DefaultModal } from '../../components/DefaultModal';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { UserContext } from '../../contexts/UserContext';
 import { AccountDataForm } from '../../forms/SignUpForms/AccountDataForm';
@@ -30,6 +32,8 @@ export const SignUp = () => {
   const [userData, setUserData] = useState<tPartialUser>({});
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentForm, setCurrentForm] = useState(forms[0]);
+  const [showModal, setShowModal] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCurrentForm(forms[currentIndex]);
@@ -40,15 +44,28 @@ export const SignUp = () => {
     if (currentIndex < forms.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      setIsLoading(true);
+      setIsLoading(true, true);
       signUp(userData as tUser)
+        .then(() => setShowModal(true))
         .catch((e) => alert(e))
         .finally(() => setIsLoading(false));
     }
   };
 
+  const handleConfirmation = () => {
+    navigate('/');
+  };
+
   return (
     <AutenticationPage title="Criar Conta">
+      <DefaultModal
+        open={showModal}
+        onClick={handleConfirmation}
+        handleClose={() => setShowModal(false)}
+        title="Cadastrado com sucesso"
+      >
+        <p> Cadastrado com sucesso.</p>
+      </DefaultModal>
       <BreadCrumbs
         items={formsNames}
         currentIndex={currentIndex}
